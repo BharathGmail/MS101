@@ -5,7 +5,9 @@ jobs:
       - image: microsoft/aspnetcore-build:2.0
     steps:
       - checkout
-      - run: find .
-      - run: dotnet restore
-      - run :dotnet build
-      - run :dotnet test    
+      - run:
+          name: Restore solution
+          command: dotnet restore src/
+      - run:
+          name: Build solution
+command: dotnet build src/
